@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <title>enchant</title>
+
+    	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.6.1/spectrum.min.css">
+
+        <style type="text/css">
+            body {
+                margin: 0;
+                background: black;
+            }
+            
+            canvas {
+              -ms-interpolation-mode: nearest-neighbor;  
+              image-rendering: -webkit-optimize-contrast;
+              image-rendering: -moz-crisp-edges;         
+              image-rendering: -o-crisp-edges;           
+              image-rendering: crisp-edges;              
+              image-rendering: pixelated;                
+            }
+            .item{
+                width: 100px;
+                height: 300px;
+                background: white;
+            }
+            #enchant-stage{
+                float: left;
+                
+            }
+            .palette{
+                background: white;
+                float: left;
+                width: 200px;
+                height: 640px;
+            }
+        </style>
+        
+    </head>
+    
+    <body>
+        <div id="enchant-stage" style="width:640px;height:640px;"></div>   
+        <div class="palette">
+        	<div class="container">
+        	</div>
+        	<input id='colorpicker' />
+        </div>     
+        
+        <!-- Enchant.js -->
+        <script type="text/javascript" src="lib/enchant.js"></script>
+        <script type="text/javascript" src="lib/plugins/ui.enchant.js"></script>
+        <script type="text/javascript" src="lib/plugins/desktop.enchant.js"></script>
+        <script type="text/javascript" src="lib/lodash.min.js"></script>
+        <script src="util.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+        <script type="text/javascript" src="game.js"></script>
+        
+    	<script src="pixel/jquery.min.js"></script>
+    	<script src="pixel/vue.min.js"></script>
+    	<script src="pixel/pixi.min.js"></script>
+    	<script src="pixel/lodash.min.js"></script>
+    	<script src="pixel/tinycolor.min.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.0/spectrum.min.js"></script>
+    	<script src="pixel/main.js"></script>    
+    </body>
+
+</html>
