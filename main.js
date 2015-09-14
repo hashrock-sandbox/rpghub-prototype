@@ -1,6 +1,15 @@
 var mapImage = 'map1.gif';
 var charaImage = 'chara0.gif';
 
+function createUser(image){
+    var player = new Sprite(32, 32);
+    player.x = 6 * 16 - 8;
+    player.y = 10 * 16;
+    player.image = image;
+    return player;
+}
+
+
 function createPlayer(image){
     var player = new Sprite(32, 32);
     player.x = 6 * 16 - 8;
@@ -85,6 +94,11 @@ function gameMain() {
     var stage = new Group();
     stage.addChild(map);
     stage.addChild(player);
+    
+    
+    var user = createUser(image);
+    stage.addChild(user);
+    
     game.rootScene.addChild(stage);
 
     tile = 461;
