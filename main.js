@@ -1,12 +1,10 @@
 var mapImage = 'map1.gif';
 var charaImage = 'chara0.gif';
 
-function createPlayer(){
+function createPlayer(image){
     var player = new Sprite(32, 32);
     player.x = 6 * 16 - 8;
     player.y = 10 * 16;
-    var image = new Surface(96, 128);
-    image.draw(game.assets[charaImage], 0, 0, 96, 128, 0, 0, 96, 128);
     player.image = image;
 
     player.isMoving = false;
@@ -71,7 +69,10 @@ function gameMain() {
     map.loadData(mapA);
     map.collisionData = createCollision(mapA);
 
-    var player = createPlayer();
+    var image = new Surface(96, 128);
+    image.draw(game.assets[charaImage], 0, 0, 96, 128, 0, 0, 96, 128);
+
+    var player = createPlayer(image);
 
     function setTileAt(x, y, tile) {
         var mx = x / map.tileWidth | 0;
