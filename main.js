@@ -61,7 +61,6 @@ function gameMain() {
 
             if (game.input.a) {
                 tile = Math.floor(Math.random() * 462);
-                console.log("huuuu");
             }
         }
     });
@@ -107,10 +106,6 @@ function gameMain() {
     pad.y = 220;
     game.rootScene.addChild(pad);
 
-
-    player.addEventListener("aButtonDown", function (e) {
-        console.log("a");
-    })
 
     game.rootScene.addEventListener('enterframe', function (e) {
         var x = Math.min((game.width - 16) / 2 - player.x, 0);
