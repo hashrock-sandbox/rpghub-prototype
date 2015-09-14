@@ -1,0 +1,33 @@
+body {
+	margin: 0;
+	background: black;
+}
+
+canvas {
+	-ms-interpolation-mode: nearest-neighbor;  
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: -moz-crisp-edges;         
+	image-rendering: -o-crisp-edges;           
+	image-rendering: crisp-edges;              
+	image-rendering: pixelated;                
+}
+.item{
+	width: 100px;
+	height: 300px;
+	background: white;
+}
+#enchant-stage{
+	float: left;
+	
+}
+.palette{
+	background: white;
+	float: left;
+	width: 400px;
+	height: 640px;
+}
+
+#mapchip{
+	background: white;
+	background-image: url("map1.gif");
+}
