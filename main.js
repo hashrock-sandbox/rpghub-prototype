@@ -1,5 +1,5 @@
-var mapImage = 'map1.gif';
-var charaImage = 'chara0.gif';
+var mapImage = 'images/map1.gif';
+var charaImage = 'images/chara0.gif';
 
 function createUser(image){
     var player = new Sprite(32, 32);
