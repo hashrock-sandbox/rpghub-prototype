@@ -1,5 +1,8 @@
 var mapImage = 'images/map1.gif';
 var charaImage = 'images/chara0.gif';
+var milkcocoa = new MilkCocoa("oniek5oj87.mlkcca.com");
+
+var myId = Math.floor(Math.random() * 1000);
 
 function createUser(image){
     var player = new Group();
@@ -15,9 +18,7 @@ function createUser(image){
     label.x = 5;
     label.y = 5;
     //文字の色
-    label.color = 'red';
-    //フォント
-    label.font = '14px "Arial"';
+    label.color = 'white';
     //文字の設定
     label.text = 'test';
     
@@ -29,17 +30,32 @@ function createUser(image){
 var tile = 0;
 
 
-function createPlayer(image){
-    var player = new Sprite(32, 32);
+function createPlayer(image, name){
+    var player = new Group();
+    
+    var sprite = new Sprite(32, 32);
+    sprite.image = image;
+    var label = new Label();
+    //座標
+    label.x = 5;
+    label.y = 5;
+    //文字の色
+    label.color = 'white';
+    //文字の設定
+    label.text = name;
+    
+    player.addChild(sprite);
+    player.addChild(label);
+    
+    
     player.x = 6 * 16 - 8;
     player.y = 10 * 16;
-    player.image = image;
 
     player.isMoving = false;
     player.direction = 0;
     player.walk = 1;
     player.addEventListener('enterframe', function () {
-        this.frame = this.direction * 3 + this.walk;
+        sprite.frame = this.direction * 3 + this.walk;
         if (this.isMoving) {
             this.moveBy(this.vx, this.vy);
 
@@ -100,7 +116,7 @@ function gameMain() {
     var image = new Surface(96, 128);
     image.draw(game.assets[charaImage], 0, 0, 96, 128, 0, 0, 96, 128);
 
-    var player = createPlayer(image);
+    var player = createPlayer(image, "id" + myId);
 
     function setTileAt(x, y, tile) {
         var mx = x / map.tileWidth | 0;
