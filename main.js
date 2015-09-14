@@ -1,7 +1,7 @@
 var mapImage = 'map1.gif';
 var charaImage = 'chara0.gif';
 
-function gameMain(){
+function gameMain() {
     var map = new Map(16, 16);
     map.image = game.assets[mapImage];
 
@@ -18,11 +18,11 @@ function gameMain(){
     player.isMoving = false;
     player.direction = 0;
     player.walk = 1;
-    player.addEventListener('enterframe', function(){
+    player.addEventListener('enterframe', function () {
         this.frame = this.direction * 3 + this.walk;
         if (this.isMoving) {
             this.moveBy(this.vx, this.vy);
-    
+
             if (!(game.frame % 3)) {
                 this.walk++;
                 this.walk %= 3;
@@ -57,16 +57,16 @@ function gameMain(){
                     arguments.callee.call(this);
                 }
             }
-            
-            
-            if(game.input.a){
+
+
+            if (game.input.a) {
                 tile = Math.floor(Math.random() * 462);
                 console.log("huuuu");
             }
         }
     });
 
-    function setTileAt(x, y, tile){
+    function setTileAt(x, y, tile) {
         var mx = x / map.tileWidth | 0;
         var my = y / map.tileHeight | 0;
         mapA[my][mx] = tile;
@@ -78,57 +78,57 @@ function gameMain(){
     stage.addChild(map);
     stage.addChild(player);
     game.rootScene.addChild(stage);
-    
-    var tile = 461;
-    
-    var drawTileEvent = function(event){
+
+    tile = 461;
+
+    var drawTileEvent = function (event) {
         var x = event.x - stage.x;
         var y = event.y - stage.y;
         setTileAt(x, y, tile);
     }
-    
+
     var touched = false;
-    
-    game.rootScene.addEventListener('touchstart', function(event){
+
+    game.rootScene.addEventListener('touchstart', function (event) {
         touched = true;
         drawTileEvent(event);
     });
-    game.rootScene.addEventListener('touchmove', function(event){
-        if(touched){
+    game.rootScene.addEventListener('touchmove', function (event) {
+        if (touched) {
             drawTileEvent(event);
         }
     });
-    game.rootScene.addEventListener('touchend', function(event){
+    game.rootScene.addEventListener('touchend', function (event) {
         touched = false;
     });
-    
+
     var pad = new Pad();
     pad.x = 0;
     pad.y = 220;
     game.rootScene.addChild(pad);
-    
-    
-    player.addEventListener("aButtonDown", function(e){
+
+
+    player.addEventListener("aButtonDown", function (e) {
         console.log("a");
     })
 
-    game.rootScene.addEventListener('enterframe', function(e) {
-        var x = Math.min((game.width  - 16) / 2 - player.x, 0);
+    game.rootScene.addEventListener('enterframe', function (e) {
+        var x = Math.min((game.width - 16) / 2 - player.x, 0);
         var y = Math.min((game.height - 16) / 2 - player.y, 0);
-        x = Math.max(game.width,  x + map.width)  - map.width;
+        x = Math.max(game.width, x + map.width) - map.width;
         y = Math.max(game.height, y + map.height) - map.height;
         stage.x = x;
         stage.y = y;
     });
-    game.rootScene.addEventListener('mousedown', function(e) {
+    game.rootScene.addEventListener('mousedown', function (e) {
         console.log(e.button);
-        if(e.button === 2){
+        if (e.button === 2) {
             return false;
         }
         // e.button: マウスのボタン(0, 1, 2)
     });
-    
-    game.rootScene.addEventListener('mousewheel', function(e) {
+
+    game.rootScene.addEventListener('mousewheel', function (e) {
         // e.wheelDelta: マウスホイールの移動量
     });
 }

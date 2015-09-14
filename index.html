@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <title>enchant</title>
+        <title>sharerpg</title>
 
     	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.6.1/spectrum.min.css">
 
@@ -37,8 +37,13 @@
             .palette{
                 background: white;
                 float: left;
-                width: 200px;
+                width: 400px;
                 height: 640px;
+            }
+            
+            #mapchip{
+                background: white;
+                background-image: url("map1.gif");
             }
         </style>
         
@@ -47,10 +52,17 @@
     <body>
         <div id="enchant-stage" style="width:640px;height:640px;"></div>   
         <div class="palette">
+            <!--
         	<div class="container">
         	</div>
         	<input id='colorpicker' />
-        </div>     
+            -->
+            
+            <canvas id="mapchip" width="320px" height="512px">
+                
+            </canvas>            
+        </div>
+        
         
         <!-- Enchant.js -->
         <script type="text/javascript" src="lib/enchant.js"></script>
@@ -67,7 +79,12 @@
     	<script src="pixel/lodash.min.js"></script>
     	<script src="pixel/tinycolor.min.js"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.0/spectrum.min.js"></script>
+        <!--
     	<script src="pixel/main.js"></script>    
+        -->
+
+        <script src="tileselect.js"></script>
+
     </body>
 
 </html>
