@@ -2,10 +2,28 @@ var mapImage = 'images/map1.gif';
 var charaImage = 'images/chara0.gif';
 
 function createUser(image){
-    var player = new Sprite(32, 32);
+    var player = new Group();
+    
     player.x = 6 * 16 - 8;
     player.y = 10 * 16;
-    player.image = image;
+    
+    var sprite = new Sprite(32, 32);
+    sprite.image = image;
+    
+    var label = new Label();
+    //座標
+    label.x = 5;
+    label.y = 5;
+    //文字の色
+    label.color = 'red';
+    //フォント
+    label.font = '14px "Arial"';
+    //文字の設定
+    label.text = 'test';
+    
+    player.addChild(sprite);
+    player.addChild(label);
+    
     return player;
 }
 
