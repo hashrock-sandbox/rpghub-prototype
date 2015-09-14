@@ -26,6 +26,7 @@ function createUser(image){
     
     return player;
 }
+var tile = 0;
 
 
 function createPlayer(image){
@@ -118,8 +119,6 @@ function gameMain() {
     stage.addChild(user);
     
     game.rootScene.addChild(stage);
-
-    tile = 461;
 
     var drawTileEvent = function (event) {
         var x = event.x - stage.x;
