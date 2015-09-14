@@ -1,13 +1,7 @@
 var mapImage = 'map1.gif';
 var charaImage = 'chara0.gif';
 
-function gameMain() {
-    var map = new Map(16, 16);
-    map.image = game.assets[mapImage];
-
-    map.loadData(mapA);
-    map.collisionData = createCollision(mapA);
-
+function createPlayer(){
     var player = new Sprite(32, 32);
     player.x = 6 * 16 - 8;
     player.y = 10 * 16;
@@ -64,6 +58,20 @@ function gameMain() {
             }
         }
     });
+    
+    return player;
+}
+
+var map;
+
+function gameMain() {
+    map  = new Map(16, 16);
+    map.image = game.assets[mapImage];
+
+    map.loadData(mapA);
+    map.collisionData = createCollision(mapA);
+
+    var player = createPlayer();
 
     function setTileAt(x, y, tile) {
         var mx = x / map.tileWidth | 0;
