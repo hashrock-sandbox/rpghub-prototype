@@ -117,6 +117,15 @@ function gameMain() {
     image.draw(game.assets[charaImage], 0, 0, 96, 128, 0, 0, 96, 128);
 
     var player = createPlayer(image, "id" + myId);
+    
+    setInterval(function(){
+        milkcocoa.dataStore('position').send({
+            userId: myId,
+            x: player.x,
+            y: player.y
+        });
+    }, 1000);
+    
 
     function setTileAt(x, y, tile) {
         var mx = x / map.tileWidth | 0;
@@ -130,6 +139,9 @@ function gameMain() {
     stage.addChild(map);
     stage.addChild(player);
     
+    milkcocoa.dataStore('position').on('send', function(sent) {
+        console.log(sent);
+    });
     
     var user = createUser(image);
     stage.addChild(user);
